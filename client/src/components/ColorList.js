@@ -23,15 +23,17 @@ const ColorList = ({ colors, updateColors }) => {
     // think about where will you get the id from...
     // where is is saved right now?
     axios
-      .put(`http://localhost:5000/api/colors/${updateColors.id}`, updateColors)
+      .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
+        console.log(colors,"testing coloredit")
+        
       })
       .catch(err => console.log(err));
   };
 
-  const deleteColor = e => {
+  const deleteColor = event => {
     // make a delete request to delete this color
-    // e.preventDefault();
+    // event.preventDefault();
     axios
     .delete(`http://localhost:5000/api/colors/${colors.id}`)
     .then(res => {
